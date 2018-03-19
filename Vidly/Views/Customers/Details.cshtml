@@ -6,3 +6,16 @@
 
 <h2>@Model.Name</h2>
 
+<ul>
+    @if (Model.Birthdate.Equals(null))
+    {
+
+        <li>Membership Type: @Model.MembershipType.Name</li>
+
+    }
+    else
+    {
+        <li>Membership Type: @Model.MembershipType.Name</li>
+        <li>Birthdate: @Model.Birthdate</li>
+    }
+</ul>
