@@ -239,9 +239,18 @@
     <Compile Include="Migrations\201803191331375_DateOfBirth.Designer.cs">
       <DependentUpon>201803191331375_DateOfBirth.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803191422066_CreateTableMovie.cs" />
+    <Compile Include="Migrations\201803191422066_CreateTableMovie.Designer.cs">
+      <DependentUpon>201803191422066_CreateTableMovie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803191427112_CreateTableMovie1.cs" />
+    <Compile Include="Migrations\201803191427112_CreateTableMovie1.Designer.cs">
+      <DependentUpon>201803191427112_CreateTableMovie1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
@@ -399,6 +408,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803191331375_DateOfBirth.resx">
       <DependentUpon>201803191331375_DateOfBirth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803191422066_CreateTableMovie.resx">
+      <DependentUpon>201803191422066_CreateTableMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803191427112_CreateTableMovie1.resx">
+      <DependentUpon>201803191427112_CreateTableMovie1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

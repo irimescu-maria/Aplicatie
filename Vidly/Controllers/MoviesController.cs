@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity;
 using System.Web;
 using System.Web.Mvc;
 using Vidly.Models;
@@ -10,6 +11,13 @@ namespace Vidly.Controllers
 {
     public class MoviesController : Controller
     {
+        private ApplicationDbContext _context;
+
+        public MoviesController()
+        {
+            _context = new ApplicationDbContext();
+        }
+
         // GET: Movies/Random
         //public ActionResult Random()
         //{
@@ -30,33 +38,23 @@ namespace Vidly.Controllers
         //    return View(viewModel);
         //}
 
-        public ActionResult Index()
+        public ViewResult Index()
         {
-            var movies = new List<Movie>
-            {
-                new Movie{Id = 1, Name="Shrek"},
-                new Movie{Id = 2, Name="Wall-e"}
-            };
+            var movies = _context.Movies.
+                Include(m=>m.Genre)
+                .ToList();
 
-            var viewModel = new MovieViewModels
-            {
-                Movies = movies
-            };
-
-            return View(viewModel);
+            return View(movies);
         }
 
         public ActionResult Details(int id)
         {
-            var movies = new List<Movie>
-            {
-                new Movie{Id = 1, Name="Shrek"},
-                new Movie{Id = 2, Name="Wall-e"}
-            };
+           
 
-
-            var result = movies.Find(x => x.Id == id);
-            return View(result);
+            var movie = _context.Movies.
+                Include(m=>m.Genre).
+                SingleOrDefault(c=>c.Id == id);
+            return View(movie);
 
         }
 
