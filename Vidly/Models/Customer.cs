@@ -17,11 +17,13 @@ namespace Vidly.Models
 
         //public DateTime BirthDate { get; set; }
 
-        [Display(Name = "Date of Birth")]
+        [Display(Name = "Date of Birth")] // Adnotarea este folosita pentru a afisa in form label-ul Date of Birth
         public DateTime? Birthdate { get; set; }
 
         //Navigation properties
         public MembershipType MembershipType { get; set; }
+
+        [Display(Name = "Membership Type")]
         public byte MembershipTypeId { get; set; }
     }
 }
