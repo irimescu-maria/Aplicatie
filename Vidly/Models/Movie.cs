@@ -22,6 +22,8 @@ namespace Vidly.Models
         public DateTime DateAdded{ get; set; }
 
         [Display(Name="Number In Stock")]
+        [Range(1,20)]
+        [RangeNumberInStock]
         public byte NumberInStock { get; set; }
 
         //Navigation property
