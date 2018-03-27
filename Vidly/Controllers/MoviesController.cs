@@ -50,6 +50,7 @@ namespace Vidly.Controllers
                 .ToList();
 
             return View(movies);
+            //return View();
         }
 
         public ActionResult New()
