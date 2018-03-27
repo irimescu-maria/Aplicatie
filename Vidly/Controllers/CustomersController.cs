@@ -32,7 +32,7 @@ namespace Vidly.Controllers
                 Customer = new Customer(),
                 MembershipTypes = membership
             };
-            return View("CustomerForm",viewModel);
+            return View("CustomerForm", viewModel);
         }
 
         [HttpPost]
@@ -49,7 +49,7 @@ namespace Vidly.Controllers
 
                 return View("CustomerForm", viewModel);
             }
-            if(customer.Id == 0)
+            if (customer.Id == 0)
             {
                 _context.Customers.Add(customer);
 
@@ -71,11 +71,13 @@ namespace Vidly.Controllers
         // GET: Customers
         public ViewResult Index()
         {
-            var customers = _context.Customers.
-                Include(c => c.MembershipType)
-                .ToList();
+            //var customers = _context.Customers.
+            //    Include(c => c.MembershipType)
+            //    .ToList();
 
-            return View(customers);
+            //return View(customers);
+            return View();
+
         }
 
         //[Route("Customers/Details/{id}")]
