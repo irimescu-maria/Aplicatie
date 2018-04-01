@@ -283,9 +283,9 @@
     <Compile Include="Migrations\201804011112282_SeedUsers.Designer.cs">
       <DependentUpon>201804011112282_SeedUsers.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201804011135444_SeedUsers11.cs" />
-    <Compile Include="Migrations\201804011135444_SeedUsers11.Designer.cs">
-      <DependentUpon>201804011135444_SeedUsers11.cs</DependentUpon>
+    <Compile Include="Migrations\201804011149129_AddDrivingLicenseToApplicationUser.cs" />
+    <Compile Include="Migrations\201804011149129_AddDrivingLicenseToApplicationUser.Designer.cs">
+      <DependentUpon>201804011149129_AddDrivingLicenseToApplicationUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -642,8 +642,8 @@
     <EmbeddedResource Include="Migrations\201804011112282_SeedUsers.resx">
       <DependentUpon>201804011112282_SeedUsers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804011135444_SeedUsers11.resx">
-      <DependentUpon>201804011135444_SeedUsers11.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201804011149129_AddDrivingLicenseToApplicationUser.resx">
+      <DependentUpon>201804011149129_AddDrivingLicenseToApplicationUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
