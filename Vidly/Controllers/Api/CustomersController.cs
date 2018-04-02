@@ -21,12 +21,29 @@ namespace Vidly.Controllers.Api
         }
 
         //GET /api/customers
-        public IEnumerable<CustomerDto> GetCustomers()
+        //public IHttpActionResult GetCustomers()
+        //{
+        public IHttpActionResult GetCustomers(string query = null)
         {
-            return _context.Customers
-                .Include(c=>c.MembershipType)
-                .ToList()
-                .Select(Mapper.Map<Customer, CustomerDto>);
+
+
+            var customersQuery = _context.Customers
+                     .Include(c => c.MembershipType);
+
+            if (!String.IsNullOrWhiteSpace(query))
+                customersQuery = customersQuery.Where(c => c.Name.Contains(query));
+
+            var customerDtos = customersQuery
+                 .ToList()
+                 .Select(Mapper.Map<Customer, CustomerDto>);
+
+            return Ok(customerDtos);
+
+            //var customerDtos =  _context.Customers
+            //    .Include(c => c.MembershipType)
+            //    .ToList()
+            //    .Select(Mapper.Map<Customer, CustomerDto>);
+            //return Ok(customerDtos);
         }
 
         //GET /api/customers/1
@@ -48,14 +65,14 @@ namespace Vidly.Controllers.Api
             if (!ModelState.IsValid)
                 return BadRequest();
 
-            var customer = Mapper.Map<CustomerDto,Customer>(customerDto);
+            var customer = Mapper.Map<CustomerDto, Customer>(customerDto);
 
             _context.Customers.Add(customer);
             _context.SaveChanges();
 
             customerDto.Id = customer.Id;
 
-            return Created(new Uri(Request.RequestUri+"/"+customer.Id),customerDto);
+            return Created(new Uri(Request.RequestUri + "/" + customer.Id), customerDto);
         }
 
         //PUT /api/customers/1
@@ -76,7 +93,7 @@ namespace Vidly.Controllers.Api
             //customerInDb.IsSubscribedToNewsletter = customer.IsSubscribedToNewsletter;
             //customerInDb.MembershipTypeId = customer.MembershipTypeId;
 
-            Mapper.Map<CustomerDto,Customer>(customerDto,customerInDb);
+            Mapper.Map<CustomerDto, Customer>(customerDto, customerInDb);
 
             //_context.Customers.Add(customerInDb);
             _context.SaveChanges();
