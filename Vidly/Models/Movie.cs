@@ -26,8 +26,10 @@ namespace Vidly.Models
         [RangeNumberInStock]
         public byte NumberInStock { get; set; }
 
+        public byte NumberAvailable { get; set; }
+                                   
         //Navigation property
-      
+
         public Genre Genre { get; set; }
 
         [Required]
